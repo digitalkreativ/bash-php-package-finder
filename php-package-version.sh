@@ -24,4 +24,11 @@ fi
 
 
 #Actual command
-find . -type d -name "$1" | xargs -I {} find {} -maxdepth 1 -type f -name "composer.lock" | xargs -I {} php $PHP_SCRIPT_FILE {} $2
+phpPackages=$(find . -type d -name "$1" | xargs -I {} find {} -maxdepth 1 -type f -name "composer.lock" | xargs -I {} php $PHP_SCRIPT_FILE {} $2 )
+
+if [ "$phpPackages" = '' ]; then
+    echo "$2 not found in any application in directory $1";
+else
+    phpPackages="DIRECTORY,PACKAGE,VERSION\n"$phpPackages;
+    echo -e $phpPackages | column -s ',' -t
+fi
