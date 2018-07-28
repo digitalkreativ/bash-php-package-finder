@@ -49,3 +49,8 @@ If renamed
 - Find the first level `composer.lock` file.
 - PHP script decodes `composer.lock` and finds package `package-name`
 - Display full path to directory package and version separated by tabs.
+
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
