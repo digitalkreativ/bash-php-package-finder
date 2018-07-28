@@ -33,9 +33,19 @@ If renamed
 
     php-package-version <directory-name> <package-name>
 
+## Example
+
+**Find**
+
+    php-package-version myapp swiftmailer/swiftmailer
+    
+**Output**
+
+    /var/www/myapp swiftmailer/swiftmailer v6.0.2
+
 ## Internal workings
 
-- Recursively searches current directory `.` for <directory-name>
+- Recursively searches current directory `.` for `directory-name`
 - Find the first level `composer.lock` file.
-- PHP script decodes `composer.lock` and finds package <package-name>
+- PHP script decodes `composer.lock` and finds package `package-name`
 - Display full path to directory package and version separated by tabs.
